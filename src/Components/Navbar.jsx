@@ -36,7 +36,7 @@ function Navbar({ children }) {
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
-      <ToastContainer position="top-center" autoClose={2000} />
+      <ToastContainer position="top-center" autoClose={1000} />
 
       {/* Navbar */}
       <nav className="fixed top-0 left-0 w-full z-50 backdrop-blur-lg bg-white/60 border-b border-gray-200 shadow-sm">

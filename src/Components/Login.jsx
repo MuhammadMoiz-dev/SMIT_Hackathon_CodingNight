@@ -39,7 +39,7 @@ const Login = () => {
       const auth = getAuth();
       await signInWithEmailAndPassword(auth, email, pass);
       toast.success("Login successful!");
-      setTimeout(() => navigate("/dashboard"), 1500);
+      setTimeout(() => navigate("/dashboard"), 1000);
     } catch (error) {
       console.error(error);
       toast.error(error.message.replace("Firebase:", "").trim());
@@ -57,7 +57,7 @@ const Login = () => {
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
       toast.success(`Welcome back, ${user.displayName}!`);
-      setTimeout(() => navigate("/dashboard"), 1500);
+      setTimeout(() => navigate("/dashboard"), 1000);
     } catch (error) {
       console.error("Google login error:", error);
       toast.error("Google sign-in failed. Please try again.");
@@ -66,7 +66,6 @@ const Login = () => {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      {/* ToastContainer removed — use global one in App.jsx */}
 
       <div className="bg-white p-8 rounded-xl shadow-lg w-full max-w-md transition-all duration-300 hover:shadow-xl">
         <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">
@@ -74,7 +73,6 @@ const Login = () => {
         </h2>
 
         <div className="space-y-4">
-          {/* Email Input */}
           <div>
             <label className="block mb-1 font-medium text-gray-700">
               Email
@@ -89,7 +87,6 @@ const Login = () => {
             />
           </div>
 
-          {/* Password Input */}
           <div>
             <label className="block mb-1 font-medium text-gray-700">
               Password
@@ -104,7 +101,6 @@ const Login = () => {
             />
           </div>
 
-          {/* Email/Password Login Button */}
           <button
             type="button"
             onClick={Submitbtn}
@@ -117,7 +113,6 @@ const Login = () => {
             {loading ? "Logging in..." : "Login"}
           </button>
 
-          {/* Google Login Button */}
           <button
             type="button"
             onClick={handleGoogleLogin}
@@ -130,7 +125,6 @@ const Login = () => {
           </button>
         </div>
 
-        {/* Redirect to Signup */}
         <p className="mt-4 text-center text-sm text-gray-600">
           Don’t have an account?{" "}
           <Link
